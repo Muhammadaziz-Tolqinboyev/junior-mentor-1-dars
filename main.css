@@ -53,6 +53,7 @@ body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #e2e8
 .junior-logo-image {
   position: fixed;
   z-index: 50;
+  top: 0;
   /* Kichik ekranlar uchun (Mobil) */
   width: 60px; /* Mobilda ixcham o'lcham */
   height: auto;
