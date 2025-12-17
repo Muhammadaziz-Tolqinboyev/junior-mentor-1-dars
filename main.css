@@ -54,8 +54,6 @@ body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #e2e8
   position: fixed;
   z-index: 50;
   /* Kichik ekranlar uchun (Mobil) */
-  top: 8%;
-  left: 6%;
   width: 60px; /* Mobilda ixcham o'lcham */
   height: auto;
 }
