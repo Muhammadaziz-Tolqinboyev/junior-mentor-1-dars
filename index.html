@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend 1-Dars: Mentor Scripti (Master)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+  
+  <div class="admin-bg">
+    
+    <!-- LOGO -->
+    <img src="./logo.png" alt="PDP Junior Logo" class="absolute top-6 left-6 w-16 h-auto z-50 opacity-80 hover:opacity-100 transition-opacity junior-logo-image">
+    
+    <!-- AI TUGMASI -->
+    <div class="ai-fab" onclick="toggleAI()">
+      <i class="fas fa-sparkles"></i>
+    </div>
+    
+    <!-- AI CHAT -->
+    <div class="ai-modal" id="aiModal">
+      <div class="ai-header">
+        <span>✨ Mentor Yordamchisi</span>
+        <i class="fas fa-times cursor-pointer" onclick="toggleAI()"></i>
+      </div>
+      <div class="ai-body" id="chatBody">
+        <div class="message ai">Salom, Ustoz! 👋 <br>Dars jarayonida yordam kerakmi? "Bolalarga qanday tushuntiray?", "Qiziqarli savol topib ber" deb yozishingiz mumkin.</div>
+      </div>
+      <div class="ai-input-area">
+        <input type="text" id="aiInput" class="ai-input" placeholder="Savol yozing..." onkeypress="handleEnter(event)">
+        <button class="ai-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    
+    <!-- 1. DASHBOARD & OVERVIEW -->
+    <div class="script-card active" id="slide1">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-2xl font-bold text-white uppercase"><i class="fas fa-tachometer-alt text-blue-500 mr-3"></i> 1-Dars: Mentor Dashboard</h1>
+        <span class="timer-badge">JAMI: 90 DAQIQA</span>
+      </div>
+      
+      <div class="scrollable-content">
+        <div class="grid grid-cols-2 gap-6">
+          <div>
+            <h2 class="text-lg font-bold text-blue-400 mb-3">📋 Dars Strukturasi</h2>
+            <ul class="space-y-2 text-sm text-gray-300 font-mono">
+              <li class="flex justify-between border-b border-gray-700 pb-1"><span>00-10:</span> <span>Kirish & Muz yorar</span></li>
+              <li class="flex justify-between border-b border-gray-700 pb-1"><span>10-25:</span> <span>IT Nima? (Videolar)</span></li>
+              <li class="flex justify-between border-b border-gray-700 pb-1"><span>25-35:</span> <span>Restoran Misoli</span></li>
+              <li class="flex justify-between border-b border-gray-700 pb-1"><span>35-50:</span> <span>Anatomiya (Rasmlar)</span></li>
+              <li class="flex justify-between border-b border-gray-700 pb-1"><span>50-60:</span> <span>Brauzer & Real Saytlar</span></li>
+              <li class="flex justify-between border-b border-gray-700 pb-1"><span>60-70:</span> <span>Viktorina</span></li>
+              <li class="flex justify-between border-b border-gray-700 pb-1"><span>70-85:</span> <span>Typing Amaliyot</span></li>
+              <li class="flex justify-between"><span>85-90:</span> <span>Yakun & Vazifa</span></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-lg font-bold text-green-400 mb-3">🛠️ Yangi Instrumentlar</h2>
+            <div class="space-y-2 text-sm text-gray-300">
+              <div class="p-2 bg-gray-800 rounded border-l-2 border-red-500">
+                <strong>📺 Videolar:</strong> 2-Slaydda kartalarni bossangiz, YouTube videolar (Robotlar, Minecraft) ochiladi.
+              </div>
+              <div class="p-2 bg-gray-800 rounded border-l-2 border-blue-500">
+                <strong>🖼️ Modallar:</strong> Restoran va Anatomiya slaydlarida kartalarni bossangiz, katta rasmlar chiqadi.
+              </div>
+              <div class="p-2 bg-gray-800 rounded border-l-2 border-yellow-500">
+                <strong>🔗 Havolalar:</strong> YouTube/Telegram kartalarini bossangiz, yangi tabda haqiqiy saytlar ochiladi.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="alert-box mt-4">
+          <i class="fas fa-bell"></i>
+          <span><strong>Eslatma:</strong> Agar internet sekin bo'lsa, YouTube videolarni oldindan yuklab olib qo'ying yoki o'tkazib yuboring.</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 2. KIRISH & MUZ YORAR (0-10) -->
+    <div class="script-card" id="slide2" style="border-left-color: #22c55e;">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-xl font-bold text-white">1-QISM: KIRISH & MUHIT</h1>
+        <span class="timer-badge">00:00 - 10:00</span>
+      </div>
+      <div class="scrollable-content">
+        <div class="step-item">
+          <div class="step-icon">1</div>
+          <div>
+            <h3 class="font-bold">Salomlashish & "Bilasizmi?"</h3>
+            <p class="text-sm text-gray-400">Slayd 1 dan keyin darhol "Bilasizmi?" slaydiga o'ting.</p>
+            <div class="tip-box mt-2">
+              <i class="fas fa-lightbulb"></i>
+              <span><strong>Fakt:</strong> "Birinchi sichqoncha yog'ochdan bo'lgan. Tasavvur qiling, Minecraftdagi kabi!" deb hazillashing.</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-icon">2</div>
+          <div>
+            <h3 class="font-bold">Icebreaker (Tanishuv)</h3>
+            <p class="text-sm text-gray-400">Har bir boladan so'rang: "Isming nima va qaysi o'yinni yoqtirasan?". Ularni gapirtirish muhim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 3. IT NIMA? (VIDEOLAR) (10-25) -->
+    <div class="script-card" id="slide3" style="border-left-color: #eab308;">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-xl font-bold text-white">2-QISM: IT NIMA? (VIDEOLAR)</h1>
+        <span class="timer-badge">10:00 - 25:00</span>
+      </div>
+      <div class="scrollable-content">
+        <p class="text-sm text-gray-400 mb-4">Bu yerda bolalarning qiziqishini uyg'otamiz. Slayddagi kartalarni bosib videolarni qo'ying.</p>
+        
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-robot"></i></div>
+          <div>
+            <h3 class="font-bold">Kelajak (Boston Dynamics)</h3>
+            <p class="text-sm text-gray-400">"Ko'k kartani bosaman". Video ochiladi.</p>
+            <p class="text-xs text-blue-300 mt-1">Videoni 30-40 sekund qo'yib bering. "Robotlar raqsga tushyapti, buni kim yozgan? Dasturchilar!"</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-gamepad"></i></div>
+          <div>
+            <h3 class="font-bold">O'yinlar (Minecraft)</h3>
+            <p class="text-sm text-gray-400">"Yashil kartani bosaman". Minecraft treyleri.</p>
+            <p class="text-xs text-green-300 mt-1">"Bu shunchaki o'yin emas, bu millionlab qator kodlar. Siz ham shuni yarata olasiz."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 4. RESTORAN MISOLI (25-35) -->
+    <div class="script-card" id="slide4" style="border-left-color: #f97316;">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-xl font-bold text-white">3-QISM: FRONTEND vs BACKEND</h1>
+        <span class="timer-badge">25:00 - 35:00</span>
+      </div>
+      <div class="scrollable-content">
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-utensils"></i></div>
+          <div>
+            <h3 class="font-bold">Vizual Tushuntirish</h3>
+            <p class="text-sm text-gray-400">Analogiya: "Sayt bu Restoran".</p>
+            <div class="mt-2 space-y-2">
+              <div class="bg-blue-900/40 p-2 rounded text-sm">
+                <span class="action-tag">BOSING</span> <strong>Frontend karta:</strong> Ekranda hashamatli zal rasmi chiqadi. <br>
+                <i>"Bu zalni, stollarni siz ko'rasiz. Bu Frontend."</i>
+              </div>
+              <div class="bg-red-900/40 p-2 rounded text-sm">
+                <span class="action-tag">BOSING</span> <strong>Backend karta:</strong> Oshxona rasmi chiqadi. <br>
+                <i>"Bu yerda ovqat pishadi, lekin mijoz buni ko'rmaydi. Bu Backend."</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 5. ANATOMIYA (35-50) -->
+    <div class="script-card" id="slide5" style="border-left-color: #ec4899;">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-xl font-bold text-white">4-QISM: ANATOMIYA (RASMLAR)</h1>
+        <span class="timer-badge">35:00 - 50:00</span>
+      </div>
+      <div class="scrollable-content">
+        <p class="text-sm text-gray-400 mb-3">Bu eng muhim qism. 3 ta texnologiyani odam misolida ko'rsating.</p>
+        
+        <div class="step-item">
+          <div class="step-icon">1</div>
+          <div>
+            <span class="action-tag bg-orange-500">HTML</span> kartasini bosing.
+            <p class="text-sm mt-1"><strong>Skelet rasmi chiqadi.</strong> "Suyaksiz odam tura oladimi? Yo'q. HTML - bu saytning suyagi."</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-icon">2</div>
+          <div>
+            <span class="action-tag bg-blue-500">CSS</span> kartasini bosing.
+            <p class="text-sm mt-1"><strong>Kiyingan odam rasmi chiqadi.</strong> "Skelet qo'rqinchli. Biz unga CSS orqali kiyim kiygazamiz, rang beramiz."</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-icon">3</div>
+          <div>
+            <span class="action-tag bg-yellow-500">JS</span> kartasini bosing.
+            <p class="text-sm mt-1"><strong>Yugurayotgan GIF chiqadi.</strong> "Odam chiroyli, lekin qimirlamasa u haykal. JavaScript unga jon beradi."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 6. BRAUZER & REAL SAYTLAR (50-60) -->
+    <div class="script-card" id="slide6" style="border-left-color: #8b5cf6;">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-xl font-bold text-white">5-QISM: BRAUZER & REAL SAYTLAR</h1>
+        <span class="timer-badge">50:00 - 60:00</span>
+      </div>
+      <div class="scrollable-content">
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-globe"></i></div>
+          <div>
+            <h3 class="font-bold">Brauzer qanday ishlaydi?</h3>
+            <p class="text-sm text-gray-400">Slayddagi animatsiyaga e'tibor qarating. "Siz so'rov yuborasiz -> Server javob qaytaradi (HTML/CSS/JS)".</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-icon"><i class="fab fa-youtube"></i></div>
+          <div>
+            <h3 class="font-bold">Real Saytlarni Tekshirish</h3>
+            <p class="text-sm text-gray-400">"Real Loyihalar" slaydida YouTube kartasini bosing.</p>
+            <div class="tip-box mt-2">
+              <i class="fas fa-magic"></i>
+              <span><strong>Try This:</strong> Brauzerda YouTube ochilgach, <code>F12</code> (Inspect) ni bosib, videoning nomini o'zgartirib bering. Bolalar lol qoladi!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 7. VIKTORINA & TYPING (60-85) -->
+    <div class="script-card" id="slide7" style="border-left-color: #6366f1;">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-xl font-bold text-white">6-QISM: VIKTORINA & AMALIYOT</h1>
+        <span class="timer-badge">60:00 - 85:00</span>
+      </div>
+      <div class="scrollable-content">
+        <h3 class="font-bold text-blue-400 mb-2">1. Viktorina (10 min)</h3>
+        <p class="text-sm text-gray-400 mb-4">Savollarni bering, javobni topgan bolani maqtang. Keyin kartani bosib javobni ekranda ko'rsating.</p>
+        
+        <h3 class="font-bold text-green-400 mb-2">2. TypingClub (15 min)</h3>
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-keyboard"></i></div>
+          <div>
+            <p class="text-sm">Hamma TypingClub ga kirsin. </p>
+            <ul class="list-disc ml-5 text-sm mt-1 text-gray-400">
+              <li>Aylanib chiqing, qo'li to'g'ri turganini tekshiring.</li>
+              <li>"Kim birinchi 3 ta yulduz oladi?" deb musobaqa uyushtiring.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 8. YAKUN (85-90) -->
+    <div class="script-card" id="slide8" style="border-left-color: #14b8a6;">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-xl font-bold text-white">7-QISM: YAKUN & VAZIFA</h1>
+        <span class="timer-badge">85:00 - 90:00</span>
+      </div>
+      <div class="scrollable-content">
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-home"></i></div>
+          <div>
+            <h3 class="font-bold">Uyga Vazifa (Aniq tushuntiring)</h3>
+            <div class="bg-red-900/30 p-3 rounded border-l-4 border-red-500 text-sm mt-2">
+              <strong>DIQQAT:</strong> VS Code o'rnatish shart emas! Hozircha faqat brauzer va TypingClub.
+            </div>
+            <ol class="list-decimal ml-5 text-sm mt-3 space-y-2">
+              <li><strong>TypingClub:</strong> 5-bosqichgacha yetib kelish (skrinshot tashlash).</li>
+              <li><strong>Ijodiy:</strong> O'z orzusidagi saytni qog'ozga rangli qalamlar bilan chizib kelish.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="text-center text-gray-400 mt-6 italic">"Keyingi darsda o'sha chizgan rasmingizni kodga aylantirishni boshlaymiz!" deb darsni tugating.</p>
+      </div>
+    </div>
+    
+    <!-- 9. MENTORLAR UCHUN RESURSLAR (YANGI) -->
+    <div class="script-card" id="slide9" style="border-left-color: #8b5cf6;">
+      <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+        <h1 class="text-xl font-bold text-white">📚 MENTOR KUTUBXONASI</h1>
+        <span class="timer-badge">O'Z USTINGIZDA ISHLANG</span>
+      </div>
+      <div class="scrollable-content">
+        <p class="text-sm text-gray-400 mb-4">Bolalarga mavzuni sodda tushuntirish va o'z bilimingizni oshirish uchun foydali manbalar:</p>
+        
+        <h3 class="text-sm font-bold text-blue-400 uppercase mb-2">Pedagogika va Tushuntirish</h3>
+        <a href="https://cs50.harvard.edu/x/2023/" target="_blank" class="resource-link">
+          <div class="resource-icon"><i class="fas fa-university"></i></div>
+          <div>
+            <div class="font-bold">CS50: Introduction to Computer Science</div>
+            <div class="text-xs text-gray-400">Garvard kursi. Murakkab mavzularni qanday qilib sodda tushuntirish bo'yicha master-klass. (David Malan uslubini o'rganing).</div>
+          </div>
+        </a>
+        
+        <h3 class="text-sm font-bold text-yellow-400 uppercase mb-2 mt-4">Texnik Bilimlar</h3>
+        <a href="https://javascript.info/" target="_blank" class="resource-link">
+          <div class="resource-icon"><i class="fab fa-js"></i></div>
+          <div>
+            <div class="font-bold">JavaScript.info</div>
+            <div class="text-xs text-gray-400">JS bo'yicha eng mukammal qo'llanma. Chuqur bilim uchun.</div>
+          </div>
+        </a>
+        <a href="https://developer.mozilla.org/uz/" target="_blank" class="resource-link">
+          <div class="resource-icon"><i class="fas fa-book"></i></div>
+          <div>
+            <div class="font-bold">MDN Web Docs (Mozilla)</div>
+            <div class="text-xs text-gray-400">Web standartlari bo'yicha rasmiy hujjatlar.</div>
+          </div>
+        </a>
+        
+        <h3 class="text-sm font-bold text-pink-400 uppercase mb-2 mt-4">Bolalar Psixologiyasi</h3>
+        <div class="p-3 bg-gray-800 rounded text-xs text-gray-300">
+          <strong>Kitob:</strong> "Gamification in Education" (Ta'limda o'yinlashtirish). <br>
+          Bolalar diqqatini ushlab turish uchun darsni o'yinga aylantirish usullarini o'rganing.
+        </div>
+      </div>
+    </div>
+    
+    <!-- NAVIGATION -->
+    <button class="nav-btn prev-btn" onclick="changeSlide(-1)">❮ Ortga</button>
+    <button class="nav-btn next-btn" onclick="changeSlide(1)">Keyingi ❯</button>
+    
+  </div>
+
+  <script src="./main.js"></script>
+  
+</body>
+</html>
